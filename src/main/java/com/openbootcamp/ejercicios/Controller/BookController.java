@@ -17,6 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.openbootcamp.ejercicios.Model.Entities.Book;
 import com.openbootcamp.ejercicios.Model.Repository.BookRepository;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+
 @RestController
 @RequestMapping("/api")
 public class BookController {
@@ -30,14 +36,27 @@ public class BookController {
     }
 
     // Read All
+    @Operation(summary = "Get a list of books")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Books founded"),
+            @ApiResponse(responseCode = "404", description = "Books not founded")
+    })
     @GetMapping("/books")
     public List<Book> findAll() {
         return bookRepository.findAll();
     }
 
     // Read One
+    @Operation(summary = "Get one book")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Book founded", content = {
+                    @Content(mediaType = "application/json") }),
+            @ApiResponse(responseCode = "404", description = "Book not founded")
+    })
     @GetMapping("/books/{id}")
-    public ResponseEntity<Book> findOneById(@PathVariable Long id) {
+    public ResponseEntity<Book> findOneById(
+            @Parameter(description = "id of book to be searched") @PathVariable Long id) {
+
         var response = bookRepository.findById(id);
 
         if (response.isPresent()) {
