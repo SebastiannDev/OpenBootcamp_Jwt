@@ -7,3 +7,4 @@
 * Comprender la implementación de JPA Repository
 * Generar Logs dentro de spring boot para concer los estados de la aplcación
 * Documentar la api con swagger y la libreria Open Api - springDoc
+* Comprender como funciona JUnit en casos de test en Api Rest
