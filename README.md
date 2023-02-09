@@ -8,3 +8,4 @@
 * Generar Logs dentro de spring boot para concer los estados de la aplcación
 * Documentar la api con swagger y la libreria Open Api - springDoc
 * Comprender como funciona JUnit en casos de test en Api Rest
+* Ecosistema de artefactos, empaquetar un programa java, accediendo a variables de application.properties

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +28,9 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 @RequestMapping("/api")
 public class BookController {
 
+    @Value("${app.message}")
+    String message;
+
     private BookRepository bookRepository;
     private final Logger log = LoggerFactory.getLogger(BookController.class);
 
@@ -43,6 +47,7 @@ public class BookController {
     })
     @GetMapping("/books")
     public List<Book> findAll() {
+        System.out.println(message);
         return bookRepository.findAll();
     }
 
