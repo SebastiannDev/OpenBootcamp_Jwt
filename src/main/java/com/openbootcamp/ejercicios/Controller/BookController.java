@@ -39,6 +39,12 @@ public class BookController {
         this.bookRepository = bookRepository;
     }
 
+    // Hello
+    @GetMapping("/hello")
+    public ResponseEntity<String> hello() {
+        return ResponseEntity.ok("Hello from spring boot!");
+    }
+
     // Read All
     @Operation(summary = "Get a list of books")
     @ApiResponses(value = {
