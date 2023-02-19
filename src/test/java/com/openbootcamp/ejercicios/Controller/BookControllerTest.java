@@ -74,6 +74,8 @@ public class BookControllerTest {
     @Test
     void testFindAll() {
 
+        testRestTemplate = testRestTemplate.withBasicAuth("admin", "1234");
+
         ResponseEntity<Book[]> res = testRestTemplate.getForEntity("/api/books", Book[].class);
         assertEquals(HttpStatus.OK, res.getStatusCode());
 
