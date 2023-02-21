@@ -18,8 +18,12 @@ public class EjerciciosApplication {
 		UserRepository userRepo = app.getBean(UserRepository.class);
 		PasswordEncoder encoder = app.getBean(PasswordEncoder.class);
 
-		User user = new User(null, "sebas", encoder.encode("admin"));		
+		User user = new User(null, "sebas", encoder.encode("admin"));	
+		User user1 = new User(null, "rosa", encoder.encode("1234"));		
+
 		userRepo.save(user);
+		userRepo.save(user1);
+
 	}
 
 }
