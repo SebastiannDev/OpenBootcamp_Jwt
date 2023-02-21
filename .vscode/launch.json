@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-CourseApplication<course>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.openbootcamp.course.course.CourseApplication",
+            "projectName": "course",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-EjerciciosApplication<course>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.openbootcamp.ejercicios.EjerciciosApplication",
+            "projectName": "course",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

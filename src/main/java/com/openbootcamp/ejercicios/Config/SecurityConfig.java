@@ -19,7 +19,9 @@ public class SecurityConfig {
                 .cors().and().csrf().disable()
                 .authorizeHttpRequests()
                 .requestMatchers("/api/**").permitAll()
-                .anyRequest().authenticated();
+                .anyRequest().authenticated()
+                .and()
+                .formLogin();
 
         return http.build();
     }
