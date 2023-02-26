@@ -1,12 +1,13 @@
 package com.openbootcamp.ejercicios;
 
+import com.openbootcamp.ejercicios.Model.Role;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.openbootcamp.ejercicios.Model.Entities.User;
-import com.openbootcamp.ejercicios.Model.Repository.UserRepository;
+import com.openbootcamp.ejercicios.Model.User;
+import com.openbootcamp.ejercicios.Repository.UserRepository;
 
 @SpringBootApplication
 public class EjerciciosApplication {
@@ -18,11 +19,8 @@ public class EjerciciosApplication {
 		UserRepository userRepo = app.getBean(UserRepository.class);
 		PasswordEncoder encoder = app.getBean(PasswordEncoder.class);
 
-		User user = new User(null, "sebas", encoder.encode("admin"));	
-		User user1 = new User(null, "rosa", encoder.encode("1234"));		
-
-		userRepo.save(user);
-		userRepo.save(user1);
+		userRepo.save(new User(null, "sebas", encoder.encode("admin"),"admin@mail.to" ,Role.ADMIN));
+		userRepo.save(new User(null, "rosa", encoder.encode("1234"), "random@mail.to" ,Role.USER));
 
 	}
 

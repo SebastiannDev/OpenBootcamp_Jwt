@@ -2,6 +2,7 @@ package com.openbootcamp.ejercicios.Controller;
 
 import java.util.List;
 
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.openbootcamp.ejercicios.Model.Entities.Book;
-import com.openbootcamp.ejercicios.Model.Repository.BookRepository;
+import com.openbootcamp.ejercicios.Model.Book;
+import com.openbootcamp.ejercicios.Repository.BookRepository;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -29,9 +30,9 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 public class BookController {
 
     @Value("${app.message}")
-    String message;
+    private final String message = null;
 
-    private BookRepository bookRepository;
+    private final BookRepository bookRepository;
     private final Logger log = LoggerFactory.getLogger(BookController.class);
 
     // Constructor
@@ -80,10 +81,10 @@ public class BookController {
 
     // Create One
     @PostMapping("/books")
-    public ResponseEntity<Book> create(@RequestBody Book book) {
+    public ResponseEntity<Book> create(@RequestBody @NotNull Book book) {
 
         if (book.getId() == null) {
-            log.warn("Intentando crear nuevo libro...");
+            log.warn("Trying create new book...");
             return ResponseEntity.ok(bookRepository.save(book));
         }
 
@@ -95,7 +96,7 @@ public class BookController {
     public ResponseEntity<Book> update(@RequestBody Book book, @PathVariable Long id) {
 
         if (id == null) {
-            log.warn("Intentando actualizar un libro inexistente");
+            log.warn("Trying update one book not existent");
             return ResponseEntity.badRequest().build();
         }
 

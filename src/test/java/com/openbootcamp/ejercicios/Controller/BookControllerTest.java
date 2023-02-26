@@ -20,7 +20,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
-import com.openbootcamp.ejercicios.Model.Entities.Book;
+import com.openbootcamp.ejercicios.Model.Book;
 
 import lombok.extern.slf4j.Slf4j;
 

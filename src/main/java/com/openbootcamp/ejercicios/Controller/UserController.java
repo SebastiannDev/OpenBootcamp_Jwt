@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.openbootcamp.ejercicios.Model.Entities.User;
-import com.openbootcamp.ejercicios.Model.Repository.UserRepository;
+import com.openbootcamp.ejercicios.Model.User;
+import com.openbootcamp.ejercicios.Repository.UserRepository;
 
 @RestController
 @RequestMapping("/api")
