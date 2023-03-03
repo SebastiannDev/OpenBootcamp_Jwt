@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.DelegatingPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
 
 public class EncriptionTest {
     
@@ -29,7 +28,6 @@ public class EncriptionTest {
     void springPasswordEncoders(){
         Map<String, PasswordEncoder> encoder = new HashMap<>();
         encoder.put("bcrypt", new BCryptPasswordEncoder());
-        encoder.put("pbkdf2", new Pbkdf2PasswordEncoder("s3cret", 2, 1, 2));
 
         PasswordEncoder passwordEncoder = new DelegatingPasswordEncoder("bcrypt", encoder);
         String encodedPass = passwordEncoder.encode("test");
